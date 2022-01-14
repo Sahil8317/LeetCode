@@ -38,7 +38,7 @@ class Solution
         for(int i=0;i<n;i++){
             maxi = max(arr[i].dead,maxi);
         }
-        int result [maxi+1] = {0};
+        int result [maxi+1] = {-1};
         int maxProfit = 0,jobCount=0;
         for(int i=0;i<n;i++){
            if(result[arr[i].dead]==0){
