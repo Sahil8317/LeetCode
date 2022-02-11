@@ -1,16 +1,23 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-         int map[26] = {0};
-        for(char c : s1) map[c - 'a']++;
-        int j = 0, i = 0, count_chars = s1.size();
-        while(j < s2.size()){
-            if(map[s2.at(j++) - 'a']-- > 0)
-                count_chars--;
-            if(count_chars == 0) return true;
-            if(j - i == s1.size() && map[s2.at(i++) - 'a']++ >= 0)
-                count_chars++;
+        vector<int> map1(26);
+        vector<int> map2(26);
+        for(int i=0;i<s1.size();i++) map1[s1[i]-'a']+=1;
+        int l = 0,h = 0;
+        while(h<s2.size()){
+            if(h-l ==s1.size()){
+                if(map2==map1)return true;
+               
+                map2[s2[l]-'a']--;
+                l++;
+            }else{
+                map2[s2[h]-'a']++;
+                h++;
+            }
+            
         }
+        if(map1==map2)return true;
         return false;
     }
 };
