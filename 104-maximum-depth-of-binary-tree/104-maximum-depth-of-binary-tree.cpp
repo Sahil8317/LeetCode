@@ -16,7 +16,7 @@ public:
         if(p==NULL){
             return 0;
         }
-       int x = calDepth(p->left)+1;
+        int x = calDepth(p->left)+1;
         int y = calDepth(p->right)+1;
         if(x>y)
             return x;
