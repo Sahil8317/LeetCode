@@ -21,7 +21,7 @@ public:
            left = index+1;     
        }
         int ind = 0;
-        while(ans.size()>1){
+        while(ans.size()>1){     // to remove leading zeros
             if(ans[ind]=='0')
                 ind++;
             else
