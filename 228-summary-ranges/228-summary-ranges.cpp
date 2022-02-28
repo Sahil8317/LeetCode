@@ -16,12 +16,7 @@ public:
                 last = nums[i];
                 if(first==last) ans.push_back(to_string(first));
                 else{
-                    string first_range = to_string(first);
-                    string last_range = to_string(last);
-                    string mid = "->";
-                   // cout<<nums[i]<<endl<<i;
-                    string res = first_range+mid+last_range;
-                    ans.push_back(res);
+                    ans.push_back(to_string(first)+"->"+to_string(last));
                 }
         }
         if(i!=nums.size()) ans.push_back(to_string(nums[nums.size()-1]));
