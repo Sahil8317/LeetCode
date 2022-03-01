@@ -1,11 +1,15 @@
 class Solution {
 public:
     vector<int> countBits(int n) {
-        int res = 0;
-        vector<int> ans;
-        for(int i=0;i<=n;i++){
-            res =__builtin_popcount(i);
-            ans.push_back(res);
+        vector<int> ans(n);
+        ans.push_back(0);
+        if(n==0) return ans;
+        for(int i = 1;i<=n;i++){
+            if(i%2==0){   // if the number is even
+                ans[i]  = ans[i/2];
+            }else {
+                ans[i] = ans[i-1]+1;
+            }
         }
         return ans;
     }
