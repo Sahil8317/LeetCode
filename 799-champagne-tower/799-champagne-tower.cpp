@@ -7,12 +7,10 @@ public:
                if(row==0 && glass==0){
                    dp[{row,glass}] = poured;
                }else{
-              // cout<<dp[{row-1,glass-1}]<<endl;
                  double x = ((dp[{row-1,glass-1}]-1)/2);
                  double y = ((dp[{row-1,glass}]-1)/2);
                  if(x<0) x = 0;
                  if(y<0) y = 0;
-                // cout<<x<<" "<<y<<endl;
                dp[{row,glass}] = x+y;  //pascal traingle 
                }   
                if(row==query_row && glass==query_glass){ 
