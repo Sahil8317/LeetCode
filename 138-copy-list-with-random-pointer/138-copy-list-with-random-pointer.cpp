@@ -47,6 +47,6 @@ public:
             last = last->next;
         }
         
-        return t;
+        return m[head];
     }
 };
