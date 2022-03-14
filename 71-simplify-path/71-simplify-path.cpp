@@ -27,8 +27,6 @@ public:
                 }
             }
         }
-        string ans = "/";
-        int n = stk.size();
         string res = "/";
         vector<string> ar;
         
@@ -37,12 +35,6 @@ public:
             stk.pop();
         }
         reverse(ar.begin(),ar.end());
-        // for(int i=0;i<res.length();i++){
-        //     ans+=res[i];
-        //     if(i<res.length()-1)
-        //         ans+='/';
-        // }
-       // cout<< ar.size();
         for(int i=0;i<ar.size();i++){
              res+=ar[i];
             if(i<ar.size()-1) res+='/';
