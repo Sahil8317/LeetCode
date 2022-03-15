@@ -15,8 +15,7 @@ public:
         }
         string ans = "";
             while(!stk.empty()){
-                pair<char,int> p = stk.top();
-                s[p.second] = '*';
+                s[stk.top().second] = '*';
                 stk.pop();
             }
          for(int i=0;i<n;i++){
