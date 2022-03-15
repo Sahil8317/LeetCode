@@ -16,7 +16,6 @@ public:
         string ans = "";
             while(!stk.empty()){
                 pair<char,int> p = stk.top();
-                cout<<p.second<<endl;
                 s[p.second] = '*';
                 stk.pop();
             }
