@@ -8,9 +8,6 @@ public:
     }
     int twoCitySchedCost(vector<vector<int>>& costs) {
         sort(costs.begin(),costs.end(),cmp);
-        for(auto cost:costs){
-            cout<<cost[0]<<" "<<cost[1]<<endl;
-        }
         int sumA = 0,sumB = 0;
         int countA = 0,countB = 0;
         int n = costs.size()/2;
