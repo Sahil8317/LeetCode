@@ -1,5 +1,6 @@
 class Solution {
-public:
+public: 
+    // memorization dp
     int f(int ind,vector<int> &dp,vector<int>&cost){
         if(ind==0 || ind==1) return 0;
         if(dp[ind]!=-1) return dp[ind];
@@ -11,7 +12,16 @@ public:
     int minCostClimbingStairs(vector<int>& cost) {
         // check out discussion for understanding question clearly
         int n = cost.size();
-        vector<int> dp(n+1,-1);
-        return f(n,dp,cost);
+         vector<int> dp(n+1,-1);
+        // return f(n,dp,cost);
+        // Tabulation DP
+        dp[0] = 0;
+        dp[1] = 0;
+        for(int i=2;i<=n;i++){
+            int left = dp[i-1]+cost[i-1];
+            int right = dp[i-2]+cost[i-2];
+            dp[i] = min(left,right);
+        }
+        return dp[n];
     }
 };
