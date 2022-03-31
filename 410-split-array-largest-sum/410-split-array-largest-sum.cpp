@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    
+    // same question as number of books allocated in interview bit
     bool isSubsetPossible(int barrier,int m,vector<int> &nums){
     int subsetSum = 0,subsetCount = 1,n = nums.size();
         for(int i=0;i<n;i++){
@@ -23,7 +23,7 @@ public:
     
     }
     int splitArray(vector<int>& nums, int m) {
-        if(m>nums.size())
+        if(m>nums.size())   // edge case  
             return -1;
         int low = nums[0];
         int high = 0;
