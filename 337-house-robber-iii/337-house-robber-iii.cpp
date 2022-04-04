@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// dp question dp on trees
 class Solution {
 public:
    int f(TreeNode *root, map<TreeNode*,int> &dp){
