@@ -15,8 +15,24 @@ public:
         int m = matrix[0].size();
         int mini = INT_MAX;
         vector<vector<int>> dp(n,vector<int>(m,-1));
+        
         for(int i=0;i<m;i++){
-            mini = min(mini,f(n-1,i,matrix,n,m,dp));
+            dp[0][i] = matrix[0][i];
+        }
+        for(int i=1;i<n;i++){
+            for(int j=0;j<m;j++){
+                int down = matrix[i][j]+dp[i-1][j];
+                int downLeft = matrix[i][j];
+                if(j>0) downLeft+=dp[i-1][j-1];
+                else downLeft = 1e8;
+                int downRight = matrix[i][j];
+                if(j+1<m) downRight+= dp[i-1][j+1];
+                else downRight = 1e8;
+                dp[i][j] = min(down,min(downLeft,downRight));
+            }
+        }    
+        for(int i=0;i<m;i++){
+            mini = min(mini,dp[n-1][i]);
         }
         return mini;
     }
