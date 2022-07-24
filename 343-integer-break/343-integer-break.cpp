@@ -15,26 +15,27 @@ public:
     }
     int integerBreak(int n) {
         vector<int> arr;
-        vector<vector<int>> dp(n,vector<int>(n+1,-1));
+        vector<vector<int>> dp(n,vector<int>(n+1,0));
         for(int i=1;i<n;i++)
             arr.push_back(i);
         
-        return f(n-2,n,arr,dp);
+        //return f(n-2,n,arr,dp);
         //Tabulation
         //base case
         
-        // for(int N = 0;N<=n;N++){
-        //     dp[0][N] = 1;
-        // }
-        // for(int index = 1;index<n;index++){
-        //     for(int N = 0;N<=n;N++){
-        //         int notTake = (dp[index-1][N])*1;
-        //         int take =INT_MIN;
-        //         if(arr[index]<=N)
-        //             take = (dp[index][N-arr[index]])*arr[index];
-        //         dp[index][N] = max(take,notTake);
-        //     }
-        // }
-        // return dp[n-1][n];
+        for(int N = 0;N<=n;N++){
+            dp[0][N] = 1;
+        }
+        for(int index = 1;index<n-1;index++){
+            for(int N = 0;N<=n;N++){
+                int notTake = (dp[index-1][N])*1;
+                int take = INT_MIN;
+                if(arr[index]<=N)
+                    take = (dp[index][N-arr[index]])*arr[index];
+                
+                dp[index][N] = max(take,notTake);
+            }
+        }
+        return dp[n-2][n];
     }
 };
