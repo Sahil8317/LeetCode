@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // recursive solution
     TreeNode *prev = NULL;
     void createLinkedList(TreeNode *root){
         if(!root)
@@ -25,4 +26,5 @@ public:
     void flatten(TreeNode* root) {
        createLinkedList(root);
     }
+    
 };
