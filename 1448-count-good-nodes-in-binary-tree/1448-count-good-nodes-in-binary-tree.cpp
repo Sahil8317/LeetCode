@@ -11,20 +11,18 @@
  */
 class Solution {
 public:
-    void getGoodNodes(TreeNode *root,int &ans,int mmax){
-        if(!root)
-            return ;
-        mmax = max(mmax,root->val);
-        if(root->val>=mmax)
-            ans++;
-        getGoodNodes(root->left,ans,mmax);
-        getGoodNodes(root->right,ans,mmax);
+    void getGoodNodes(TreeNode *node,int mmax,int &ans){
+        if(!node) return ;
+        if(node->val>=mmax) ans++;
+        mmax = max(mmax,node->val);
+        getGoodNodes(node->left,mmax,ans);
+        getGoodNodes(node->right,mmax,ans);
+        
     }
     int goodNodes(TreeNode* root) {
-        if(root==NULL)
-            return 0;
-        int ans = 0;
-        getGoodNodes(root,ans,root->val);
+       if(!root) return 0;
+        int ans =0;
+        getGoodNodes(root,INT_MIN,ans);
         return ans;
     }
 };
