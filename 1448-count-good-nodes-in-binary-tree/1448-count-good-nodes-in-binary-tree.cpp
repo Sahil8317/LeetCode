@@ -21,7 +21,7 @@ public:
         getGoodNodes(root->right,ans,mmax);
     }
     int goodNodes(TreeNode* root) {
-        if(root ==NULL)
+        if(root==NULL)
             return 0;
         int ans = 0;
         getGoodNodes(root,ans,root->val);
