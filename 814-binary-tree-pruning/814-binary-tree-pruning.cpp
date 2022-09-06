@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // see discussion for best solution.
     
     bool removeNodes(TreeNode* root){
         if(root==NULL)
