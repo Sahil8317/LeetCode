@@ -23,7 +23,7 @@ public:
             root->left=NULL;
         if(rightNode)
             root->right=NULL;
-        if((leftNode && rightNode && root->val==0)||root->val==0 && root->left==NULL && root->right==NULL){
+        if(root->val==0 && ((leftNode && rightNode)||(root->left==NULL && root->right==NULL))){
             // remove the present node also.
             return true;
         }
