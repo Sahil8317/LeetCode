@@ -14,18 +14,16 @@ public:
     
     void explorePaths(TreeNode *node, string ans, vector<string> &fans){
         ans+=to_string(node->val);
-        if(node!=NULL && node->left==NULL && node->right==NULL){
+        if(node && !node->left && !node->right){
             fans.push_back(ans);
             return ;
         }
         ans+="->";
-        if(node->left){
+        if(node->left)
             explorePaths(node->left,ans,fans);
-        }
-        if(node->right){
+       
+        if(node->right)
             explorePaths(node->right,ans,fans);
-        }
-        
     }
     
     vector<string> binaryTreePaths(TreeNode* root) {
