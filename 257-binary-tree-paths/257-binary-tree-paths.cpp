@@ -28,6 +28,7 @@ public:
     
     vector<string> binaryTreePaths(TreeNode* root) {
         vector<string>ans;
+        if(!root) return ans;
         explorePaths(root,"",ans);
         return ans;
     }
