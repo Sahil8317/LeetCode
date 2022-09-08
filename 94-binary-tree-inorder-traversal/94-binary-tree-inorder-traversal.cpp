@@ -12,22 +12,34 @@
 class Solution {
 public:
     
+    void recursiveInorderTraversal(TreeNode *root,vector<int> &ans){
+        if(!root) return ;
+        recursiveInorderTraversal(root->left,ans);
+        ans.push_back(root->val);
+        recursiveInorderTraversal(root->right,ans);
+    }
+    
     vector<int> inorderTraversal(TreeNode* root) {
-      vector<int> ans;
-        stack<TreeNode *> stk;
-        TreeNode * p = root;
-        while(true){
-            if(p!=NULL){
-                stk.push(p);
-                p = p->left;
-            }else{
-                if(stk.empty()) break;
-                p = stk.top();
-                stk.pop();
-                ans.push_back(p->val);
-                p = p->right;
-            }
-        }
+      // vector<int> ans;
+      //   stack<TreeNode *> stk;
+      //   TreeNode * p = root;
+      //   while(true){
+      //       if(p!=NULL){
+      //           stk.push(p);
+      //           p = p->left;
+      //       }else{
+      //           if(stk.empty()) break;
+      //           p = stk.top();
+      //           stk.pop();
+      //           ans.push_back(p->val);
+      //           p = p->right;
+      //       }
+      //   }
+      //   return ans;
+        vector<int> ans;
+        recursiveInorderTraversal(root,ans);
         return ans;
     }
+    
+    
 };
