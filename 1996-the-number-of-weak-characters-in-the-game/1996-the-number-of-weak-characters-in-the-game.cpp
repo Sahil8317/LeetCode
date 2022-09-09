@@ -21,10 +21,9 @@ public:
                      stk.pop();
                      ans++;
                  }
-                 stk.push(vec[1]);
-             }else{
-                stk.push(vec[1]);
-            }
+             }
+           stk.push(vec[1]);
+            
         }
      }
         return ans;
