@@ -40,23 +40,25 @@ public:
         // tabulation
         dp[n][0] = 0;
         dp[n][1] = 0;
+        vector<int> ahead(2,0),curr(2,0);
         
         for(int ind = n-1;ind>=0;ind--){
             for(int buy = 0;buy<=1;buy++){
                 int profit = 0;
                 if(buy){
-                  int buyIt = -prices[ind]+dp[ind+1][0];
-                  int notBuy = 0+dp[ind+1][1];
+                  int buyIt = -prices[ind]+ahead[0];
+                  int notBuy = 0+ahead[1];
                     profit = max(buyIt,notBuy);
                 }else{
-                    int sellIt = prices[ind]+dp[ind+1][1];
-                    int dontSell = 0+dp[ind+1][0]; 
+                    int sellIt = prices[ind]+ahead[1];
+                    int dontSell = 0+ahead[0]; 
                     profit = max(sellIt,dontSell);
                 }
-                dp[ind][buy] = profit;
+               curr[buy] = profit;
             }
+            ahead = curr;
         } 
-          return dp[0][1];
+          return ahead[1];
         
     }
 };
