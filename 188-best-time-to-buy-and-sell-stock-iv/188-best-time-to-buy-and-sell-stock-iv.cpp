@@ -21,6 +21,10 @@ public:
         vector<vector<vector<int>>> dp(prices.size()+1,vector<vector<int>>(k+1,vector<int>(2,-1)));
         return tradeStock(0,k,1,prices,dp);
         
+        // tabulation
+        
+        
+        
         
     }
 };
