@@ -5,8 +5,8 @@ public:
         sort(changed.begin(),changed.end());
         if(changed.size()%2!=0) return ans;      
         map<int,int> presence;
-       for(int i=0;i<changed.size();i++){
-           presence[changed[i]]+=1;
+       for(int i:changed){
+           presence[i]+=1;
        }
         for(int i=0;i<changed.size();i++){
             if(presence[changed[i]]!=0){
