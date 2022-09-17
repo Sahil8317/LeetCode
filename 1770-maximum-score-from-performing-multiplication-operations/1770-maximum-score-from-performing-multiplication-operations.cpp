@@ -29,7 +29,7 @@ public:
     int maximumScore(vector<int>& nums, vector<int>& multi) {
       int ans = 0;
       int n = nums.size(),m = multi.size();
-      vector<vector<int>> dp(m+1,vector<int>(m+1,-2));
+      vector<vector<int>> dp(m+1,vector<int>(m+1,-2));  // there is a test case in which if we keep dp array it gives TLE as many subproblem have answer as -1 so to avoid that we declare it with -2
      
       ans = f2(0,0,n,nums,multi,dp);
       return ans;
