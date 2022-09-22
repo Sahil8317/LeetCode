@@ -14,9 +14,22 @@ public:
     }
     
     int maxSumDivThree(vector<int>& nums) {
-         vector<vector<int>> dp(nums.size(),vector<int>(4,-1));
-         int ans = f(0,nums,0,dp);
-         return ans;
+         vector<vector<int>> dp(nums.size()+1,vector<int>(4,-1000000));
+         // int ans = f(0,nums,0,dp);
+         // return ans;
+        // base case
+        for(int i = 0;i<nums.size()+1;i++){
+           dp[i][0] = 0;
+        }
+        
+        for(int index=nums.size()-1;index>=0;index--){
+            for(int r = 0;r<4;r++){
+                 int take = nums[index]+ dp[index+1][(r+nums[index])%3];
+                 int notTake = 0+ dp[index+1][r];
+                 dp[index][r] =  max(take,notTake);
+            }
+        }
+        return dp[0][0];
     }
     
 };
