@@ -5,19 +5,14 @@ public:
         if(visited[index]!=-1) return false;
         if(arr[index]==0) return true;
         
-        
         bool takePrev = false,takeNext = false;
         visited[index] = 1;
-        if(index-arr[index]>=0){
+        if(index-arr[index]>=0)
             takePrev = f(index-arr[index],arr,visited);
-            //visited[index-arr[index]] = 1;
-        }
-        if(index+arr[index]<arr.size()){
-            takeNext = f(index+arr[index],arr,visited);
-           // visited[index+arr[index]] = 1;
-        }
         
-       
+        if(index+arr[index]<arr.size())
+            takeNext = f(index+arr[index],arr,visited);
+        
         return takePrev || takeNext;
     }
     
