@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-     map<char,int> count;
+     unordered_map<char,int> count;
      for(char c:sentence){
          count[c]+=1;
      }
